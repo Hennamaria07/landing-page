@@ -17,17 +17,37 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.text-custom-green {
+  color: #5F6F52;
+}
+
+.bg-custom-green {
+  background-color: #5F6F52;
+}
+
+.border-custom-green {
+  border: solid 3px #5F6F52;
+}
+
+.bg-custom-green-light {
+  background-color: rgba(112, 128, 99, 0.66);
+}
+
+.home-wrapper-height {
+  min-height: calc(100vh + 4rem);
+  overflow: hidden;
+  margin-top: -4rem;
+}
+
+.home-wrapper-img {
+  background-image: url('/assets/images/background.svg');
+  background-repeat: no-repeat
 }

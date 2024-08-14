@@ -31,14 +31,14 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-20 top-0 left-0 h-16 transition-all duration-300 ease-in-out ${scrolling ? 'bg-white shadow-md dark:bg-gray-900' : 'bg-transparent'}`}>
+    <nav className={`fixed w-full z-50 top-0 left-0 h-16 transition-all duration-300 ease-in-out ${scrolling ? 'bg-white shadow-md dark:bg-gray-900' : 'bg-black bg-opacity-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-full">
         <ScrollLink href="/" spy smooth offset={-70} duration={500} className="cursor-pointer">
           <Image src={logo} alt="Website Logo" width={208} height={56} className="h-14" />
         </ScrollLink>
         <div className="hidden md:flex space-x-6 items-center">
           {navData?.map(item => (
-            <ScrollLink key={item.title} href={item.href} spy smooth offset={-70} duration={500} className="text-gray-800 dark:text-white hover:text-green-700 cursor-pointer">{item.title}</ScrollLink>
+            <ScrollLink key={item.title} href={item.href} spy smooth offset={-70} duration={500} className={`text-gray-800 dark:text-white ${scrolling ? '' : 'text-white'} hover:text-green-700 cursor-pointer`}>{item.title}</ScrollLink>
           ))}
         </div>
         <div className="md:hidden">

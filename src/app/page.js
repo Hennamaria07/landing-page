@@ -1,9 +1,12 @@
+import { Navbar, Home, Services } from "@/components";
 import Image from "next/image";
 
-export default function Home() {
+export default function LandingPage() {
   return (
     <main>
-      nhdh
+      <Navbar />
+      <Home />
+      <Services />
     </main>
   );
 }
