@@ -4,7 +4,7 @@ import { HoverEffect } from "./ui/card-hover-effect";
 const Services = () => {
   return (
     <section id='services' className='wrapper-height'>
-      <div className="px-8 pt-5">
+      <div className="px-8 pt-16">
         <div className="flex justify-center">
           <div className="text-center">
             <h2 className='text-4xl font-bold text-gray-700'>Our Services</h2>

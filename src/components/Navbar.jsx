@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Link as ScrollLink } from 'react-scroll';
 import logo from "../assets/images/PrimaryLogo.svg";
+import whiteLogo from "../assets/images/whiteLogo.svg";
 import { Menu, X } from 'lucide-react';
 import { navData } from '@/data';
+import Link from 'next/link';
 
 const NavBar = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -31,23 +33,23 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 top-0 left-0 h-16 transition-all duration-300 ease-in-out ${scrolling ? 'bg-white shadow-md dark:bg-gray-900' : 'bg-black bg-opacity-50'}`}>
+    <nav className={`fixed w-full z-50 top-0 left-0 h-16 transition-all duration-300 ease-in-out ${scrolling ? 'bg-white shadow-md dark:bg-gray-900' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-full">
         <ScrollLink href="/" spy smooth offset={-70} duration={500} className="cursor-pointer">
-          <Image src={logo} alt="Website Logo" width={208} height={56} className="h-14" />
+          <Image src={scrolling ? logo : whiteLogo} alt="Website Logo" width={208} height={56} className="h-14" />
         </ScrollLink>
         <div className="hidden md:flex space-x-6 items-center">
           {navData?.map(item => (
-            <ScrollLink key={item.title} href={item.href} spy smooth offset={-70} duration={500} className={`text-gray-800 dark:text-white ${scrolling ? '' : 'text-white'} hover:text-green-700 cursor-pointer`}>{item.title}</ScrollLink>
+            <Link key={item.title} href={item.href} spy smooth offset={-70} duration={500} className={`text-gray-800 dark:text-white ${scrolling ? '' : 'text-white'} hover:text-green-700 cursor-pointer`}>{item.title}</Link>
           ))}
         </div>
         <div className="md:hidden">
           {/* Mobile menu toggle button */}
           <div className={`${isMenuOpen ? "hidden" : ""} md:hidden`}>
-            <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
+            <Menu onClick={toggleMenu} className={`h-6 w-6 cursor-pointer ${scrolling ? 'text-black' : 'text-white'}`} />
           </div>
           <div className={`${isMenuOpen ? "" : "hidden"} md:hidden`}>
-            <X onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
+            <X onClick={toggleMenu} className={`h-6 w-6 cursor-pointer ${scrolling ? 'text-black' : 'text-white'}`} />
           </div>
         </div>
       </div>

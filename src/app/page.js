@@ -1,12 +1,14 @@
-import { Navbar, Home, Services } from "@/components";
-import Image from "next/image";
+import { Navbar, Home, Services, Testimonial, About, Contact } from "@/components";
 
 export default function LandingPage() {
   return (
     <main>
       <Navbar />
       <Home />
+      <About />
       <Services />
+      <Testimonial />
+      <Contact />
     </main>
   );
 }
